@@ -1,0 +1,12 @@
+name: shiny-my-app
+title: shiny-my-app
+username:
+account: diogormatas
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 521651
+bundleId: 1649940
+url: https://diogormatas.shinyapps.io/shiny-my-app/
+when: 1539883801.95533
+asMultiple: FALSE
+asStatic: FALSE
