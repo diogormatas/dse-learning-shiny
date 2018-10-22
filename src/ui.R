@@ -61,7 +61,7 @@ shinyUI(dashboardPage(
       buttonId = "searchButton",
       label = "Search"
     ),
-    sidebarMenu(
+    sidebarMenu( 
       menuItem(
         "Dashboard",
         tabName = "dashboard",
