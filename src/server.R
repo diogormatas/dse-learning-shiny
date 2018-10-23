@@ -67,7 +67,7 @@ shinyServer(function(input, output) {
     })
     
   
-  output$file_path_print <- renderPrint({
+  output$fields_list <- renderPrint({
     
     paste0(data_folder,input$filepath)
   })

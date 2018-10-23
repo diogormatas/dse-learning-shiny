@@ -67,11 +67,10 @@ shinyUI(dashboardPage(
         tabName = "dashboard",
         icon = icon("dashboard")
       ),
-      menuItem("Exploratory", tabName = "exploratory", icon = icon("searchengin"), startExpanded = FALSE,
+      menuItem("Exploratory", tabName = "exploratory", icon = icon("search"), startExpanded = FALSE,
         menuSubItem("Datasets", tabName = "datasets", icon = icon("table")),
         menuSubItem("Analytics", tabName = "analytics", icon = icon("braille"))
-      ),
-      sliderInput("slider", "Slider input:", 1, 100, 50)
+      )
     )
   ),
   dashboardBody(tabItems(
@@ -105,31 +104,47 @@ shinyUI(dashboardPage(
     ),
     tabItem(
       "datasets",
-      fluidRow(
         
+      fluidRow(
+        column(3,
       selectInput("filepath", "Datasets:",
                   c(list.files(data_folder))),
       
       # Input: Checkbox if file has header ----
-      checkboxInput("header", "Header", TRUE),
+      checkboxInput("header", "Has Header", TRUE)),
       
       # Input: Select separator ----
+      
+          column(2,
       radioButtons("sep", "Separator",
                    choices = c(Comma = ",",
                                Semicolon = ";",
                                Tab = "\t"),
-                   selected = ","),
-      
+                   selected = ",")),
+          column(2,
       # Input: Select quotes ----
       radioButtons("quote", "Quote",
                    choices = c(None = "",
                                "Double Quote" = '"',
                                "Single Quote" = "'"),
-                   selected = '"')),
+                   selected = '"'))
+      ),
+      # fluidRow(
+      #   column(2,submitButton("Load Data")),offset=2
+      # ),
       
+      fluidRow(
+        column(2,
+               br(), br(),
+               tags$b("Fields:"),
+               selectInput("filepath", "Datasets:",
+                           c(list.files(data_folder)),multiple =  TRUE))),
       
-      "Preview:",
-      dataTableOutput("table_preview")
+      fluidRow(
+        column(11,
+               br(), br(),
+               tags$b("Preview:"),
+      dataTableOutput("table_preview")))
       
     )
   ))
