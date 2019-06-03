@@ -1,2 +1,1 @@
-isto é para testar o git
-altereie o file
+criei a minha feature dummy
